@@ -1,0 +1,21 @@
+HƯỚNG DẪN CHI TIẾT THAY THẾ LOGO & FAVICON (JSONSTACK)
+======================================================
+
+Thư mục này `/public/logos/` được tối ưu hóa để chứa toàn bộ hình ảnh thương hiệu của bạn.
+Ứng dụng được viết để tự động tải file PNG nền trong suốt trước, nếu không tìm thấy sẽ tự động lùi về file JPG nền trắng.
+
+1. Kích thước (Resolution) khuyên dùng:
+
+   A) LOGO CHÍNH (Dùng cho thanh Menu đầu trang & Chân trang):
+      - Tên tệp tin khuyên dùng: `jsonstack_logo.png` (Nền trong suốt) hoặc `jsonstack_logo.jpg` (Nền màu/trắng).
+      - Kích thước khuyên dùng: 512 x 512 pixels (Tỷ lệ vuông 1:1) hoặc 1024 x 1024 pixels.
+      - Nên ưu tiên định dạng `.png` nền trong suốt để khi căn lề đạt tính thẩm mỹ tối đa.
+
+   B) FAVICON (Biểu tượng hiển thị trên tab trình duyệt):
+      - Tên tệp tin khuyên dùng: `favicon.png` hoặc `favicon.ico`.
+      - Kích thước khuyên dùng: 32 x 32 pixels hoặc 48 x 48 pixels (để hiển thị nhỏ gọn siêu nhẹ và nhanh).
+
+2. Cách tải ảnh lên ứng dụng:
+   - Trong thanh Menu quản trị "File explorer" ở góc trái màn hình, nhấn nút "+" hoặc "Upload files" để chọn ảnh từ máy tính của bạn.
+   - Di chuyển hoặc lưu trực tiếp ảnh vào thư mục chính xác: `/public/logos/`.
+   - Hệ thống sẽ ngay lập tức cập nhật giao diện mà không cần chỉnh thêm code!

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Make window.fetch writable/configurable or provide a setter to prevent errors in sandboxed environments
+      (function() {
+        try {
+          var currentFetch = window.fetch;
+          
+          function defineProp(obj, prop) {
+            try {
+              Object.defineProperty(obj, prop, {
+                get: function() {
+                  return currentFetch;
+                },
+                set: function(val) {
+                  currentFetch = val;
+                },
+                configurable: true,
+                enumerable: true
+              });
+              return true;
+            } catch (err) {
+              return false;
+            }
+          }
+
+          // Try defining it on window first
+          if (!defineProp(window, 'fetch')) {
+            // If failed, try defining on Window.prototype
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              defineProp(Window.prototype, 'fetch');
+            }
+          }
+        } catch (e) {
+          console.warn('Sandbox fetch patch bypassed:', e);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+    <link rel="icon" type="image/png" href="/logos/favicon.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

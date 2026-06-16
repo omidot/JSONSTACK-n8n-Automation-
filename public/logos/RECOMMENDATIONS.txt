@@ -1,0 +1,19 @@
+GUIDELINES FOR LOGO & FAVICON IMAGES (JSONSTACK)
+==================================================
+
+We have prepared the folder "/public/logos/" to store your brand custom image assets.
+The app is optimized to load both PNG (with transparent background) and JPG (with white/solid background).
+
+1. Recommended File Names & Sizes:
+   - File Name: `jsonstack_logo.png` OR `jsonstack_logo.jpg`
+     * Purpose: Header navbar logo and footer brand logo.
+     * Recommended Dimensions: 512 x 512 pixels (1:1 square ratio) or 1024 x 1024 pixels.
+     * Prefer: transparent .png for a luxury seamless look over the dark/light modes.
+   - File Name: `favicon.png`
+     * Purpose: Browser tab icon (favicon).
+     * Recommended Dimensions: 32 x 32 pixels or 48 x 48 pixels or 128 x 128 pixels.
+
+2. How to Upload:
+   - On the left sidebar menu under the "File explorer" section click the "+" button or click "Upload files".
+   - Select your custom local logo file and place/upload it into the "/public/logos/" folder.
+   - Enjoy your personalized automation platform!

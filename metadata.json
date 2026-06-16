@@ -1,0 +1,6 @@
+{
+  "name": "JSONStack n8n Automation OS",
+  "description": "Unlock 300+ battle-tested, premium n8n workflow templates. Self-host your automation and eliminate expensive monthly task fees.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

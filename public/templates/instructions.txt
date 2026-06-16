@@ -1,0 +1,5 @@
+Hãy tải tập tin zip chứa 300 kịch bản n8n của bạn lên thư mục này.
+Bạn có thể đặt tên tệp là 'n8n-templates-300.zip' hoặc tương tự để người dùng click tải về.
+
+Please upload your zip file containing 300 n8n templates directly to this folder.
+You can name it 'n8n-templates-300.zip' so it can be downloaded.
