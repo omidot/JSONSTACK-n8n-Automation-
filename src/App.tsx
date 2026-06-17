@@ -181,7 +181,7 @@ const SETUP_TOOLS = [
     nameVi: "VPS Server Hostinger (Khuyên dùng)",
     descriptionEn: "High-performance Cloud VPS perfect for Docker & n8n. Quick 1-click installation with unlimited bandwidth for ultra-smooth operation.",
     descriptionVi: "Cloud VPS tốc độ cao hoàn hảo cho Docker & n8n. Cài đặt nhanh chóng chỉ với 1 click chuột, băng thông không giới hạn cực kỳ mượt mà.",
-    link: "https://www.hostinger.com/vn?REFERRALCODE=0WYAHITOFW4C",
+    link: "https://www.hostinger.com/vn/cart?product=vps%3Avps_kvm_2&period=12&referral_type=cart_link&REFERRALCODE=0WYAHITOFW4C&referral_id=019ed34e-6ef7-7080-8885-3bc61016c032",
     categoryEn: "VPS SERVER",
     categoryVi: "MÁY CHỦ VPS",
     iconName: "Server",
