@@ -1625,7 +1625,7 @@ export default function App() {
               .insert({
                 email: purchaserEmail,
                 name: purchaserName,
-                amount: 0.01,
+                amount: 19,
                 status: 'Pending',
                 created_at: new Date().toISOString(),
                 updated_at: new Date().toISOString()
