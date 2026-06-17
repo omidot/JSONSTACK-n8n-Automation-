@@ -1558,7 +1558,7 @@ export default function App() {
     // Construct standard PayPal Standard Payment checkout link
     const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?` + 
       `cmd=_xclick` +
-      `&business=${encodeURIComponent('omidot.product@gmail.com')}` +
+      `&business=${encodeURIComponent('ahitofficial.com@gmail.com')}` +
       `&item_name=${encodeURIComponent('JSONStack 300+ Premium n8n Workflows Bundle')}` +
       `&amount=0.01` +
       `&currency_code=USD` +
@@ -1613,7 +1613,7 @@ export default function App() {
               .from('purchases')
               .update({
                 name: purchaserName,
-                amount: 0.01,
+                amount: 19,
                 status: 'Pending',
                 updated_at: new Date().toISOString()
               })
