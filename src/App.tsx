@@ -45,6 +45,7 @@ import {
   Key
 } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
+import { Helmet } from './components/Helmet';
 
 // Initialize Supabase. If credentials are not set, it won't crash but will gracefully handle operations.
 const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL || '';
@@ -181,7 +182,7 @@ const SETUP_TOOLS = [
     nameVi: "VPS Server Hostinger (Khuyên dùng)",
     descriptionEn: "High-performance Cloud VPS perfect for Docker & n8n. Quick 1-click installation with unlimited bandwidth for ultra-smooth operation.",
     descriptionVi: "Cloud VPS tốc độ cao hoàn hảo cho Docker & n8n. Cài đặt nhanh chóng chỉ với 1 click chuột, băng thông không giới hạn cực kỳ mượt mà.",
-    link: "https://www.hostinger.com/vn/cart?product=vps%3Avps_kvm_1&period=12&referral_type=cart_link&REFERRALCODE=0WYAHITOFW4C&referral_id=019ed351-13ed-70e6-96b6-3cef829febd6",
+    link: "https://www.hostinger.com",
     categoryEn: "VPS SERVER",
     categoryVi: "MÁY CHỦ VPS",
     iconName: "Server",
@@ -195,7 +196,7 @@ const SETUP_TOOLS = [
     nameVi: "Tên miền (Domain Name VIP)",
     descriptionEn: "Purchase a branded domain to point your VPS IP to, enabling the mandatory SSL/HTTPS certificate for n8n webhooks to trigger.",
     descriptionVi: "Mua tên miền thương hiệu để trỏ dải IP VPS về tên miền nhằm kích hoạt chứng chỉ bảo mật SSL HTTPS bắt buộc n8n webhook hoạt động.",
-    link: "https://www.hostinger.com/vn?REFERRALCODE=0WYAHITOFW4C",
+    link: "https://www.namecheap.com",
     categoryEn: "DOMAIN GATEWAY",
     categoryVi: "CỔNG TÊN MIỀN",
     iconName: "Globe",
@@ -237,7 +238,7 @@ const SETUP_TOOLS = [
     nameVi: "SMTP Gate (Dịch vụ Resend)",
     descriptionEn: "Provides outstanding, powerful, and free automatic email sending capabilities. Allows n8n to easily fire email alerts, password recovery, or reports.",
     descriptionVi: "Cung cấp gửi Email tự động miễn phí mạnh mẽ vượt trội. Giúp n8n dễ dàng bắn email thông báo khôi phục mật khẩu hoặc gửi tin kết quả.",
-    link: "https://www.hostinger.com/vn/cart?product=hostinger_mail%3Apremium&period=12&referral_type=cart_link&REFERRALCODE=0WYAHITOFW4C&referral_id=019ed351-d040-72f6-8994-f9f37cdf5ee9",
+    link: "https://resend.com",
     categoryEn: "EMAIL SMTP ENGINE",
     categoryVi: "CỔNG EMAIL SMTP",
     iconName: "Mail",
@@ -1160,40 +1161,26 @@ export default function App() {
     };
   }, []);
 
-  // Dynamic SEO title and description updates based on language selection
-  useEffect(() => {
-    const metaTitle = lang === 'en' 
-      ? 'Buy n8n Templates: 300+ Premium Automation Workflows Library'
-      : 'Mua Workflow n8n: 300+ Kịch Bản Tự Động Hóa Premium Có Sẵn';
-      
-    const metaDesc = lang === 'en'
-      ? 'Download over 300+ professional-grade n8n templates and workflows. Save hours of manual self-hosted setup and deploy instant CRM, AI agents, and marketing automations.'
-      : 'Tải ngay kho kịch bản hơn 300+ mẫu workflow n8n chất lượng cao. Rút ngắn thời gian tự cài đặt máy chủ VPS, cấu hình tích hợp AI Agent, Telegram, Google Sheets, CRM.';
-
-    const metaKeys = lang === 'en'
-      ? 'n8n templates, buy n8n workflows, ready to use n8n workflow, n8n templates free, automate n8n, self hosted n8n script'
-      : 'mua workflow n8n, n8n templates tiếng việt, kịch bản n8n tự động hóa, tài liệu hướng dẫn n8n, thư viện n8n, vps docker n8n';
-
-    document.title = metaTitle;
-
-    // Update or create Description tag
-    let descMeta = document.querySelector('meta[name="description"]');
-    if (!descMeta) {
-      descMeta = document.createElement('meta');
-      descMeta.setAttribute('name', 'description');
-      document.head.appendChild(descMeta);
-    }
-    descMeta.setAttribute('content', metaDesc);
-
-    // Update or create Keywords tag
-    let keywordsMeta = document.querySelector('meta[name="keywords"]');
-    if (!keywordsMeta) {
-      keywordsMeta = document.createElement('meta');
-      keywordsMeta.setAttribute('name', 'keywords');
-      document.head.appendChild(keywordsMeta);
-    }
-    keywordsMeta.setAttribute('content', metaKeys);
+  // Dynamic SEO configurations based on high search volume queries and Google display criteria
+  const seoConfig = useMemo(() => {
+    return lang === 'en' ? {
+      title: 'n8n Templates: Buy 300+ Premium n8n Workflows',
+      description: 'Download over 300+ professional-grade n8n templates and workflows. Save hours of manual self-hosted setup and deploy instant CRM, AI agents, and marketing automations.',
+      keywords: 'n8n templates, buy n8n workflows, ready to use n8n workflow, n8n templates free, automate n8n, self hosted n8n script'
+    } : {
+      title: 'Workflow n8n - Mua 300+ Kịch Bản Tự Động Hóa Sẵn Có',
+      description: 'Tải ngay kho kịch bản hơn 300+ mẫu workflow n8n chất lượng cao. Rút ngắn thời gian tự cài đặt máy chủ VPS, cấu hình tích hợp AI Agent, Telegram, Google Sheets, CRM.',
+      keywords: 'mua workflow n8n, n8n templates tiếng việt, kịch bản n8n tự động hóa, tài liệu hướng dẫn n8n, thư viện n8n, vps docker n8n'
+    };
   }, [lang]);
+
+  // Dynamically computed canonical url from the host browser address
+  const canonicalUrl = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.origin + window.location.pathname;
+    }
+    return '';
+  }, []);
 
   // Auto detect language based on IP address location and browser preferences
   useEffect(() => {
@@ -1558,7 +1545,7 @@ export default function App() {
     // Construct standard PayPal Standard Payment checkout link
     const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?` + 
       `cmd=_xclick` +
-      `&business=${encodeURIComponent('ahitofficial.com@gmail.com')}` +
+      `&business=${encodeURIComponent('omidot.product@gmail.com')}` +
       `&item_name=${encodeURIComponent('JSONStack 300+ Premium n8n Workflows Bundle')}` +
       `&amount=0.01` +
       `&currency_code=USD` +
@@ -1613,7 +1600,7 @@ export default function App() {
               .from('purchases')
               .update({
                 name: purchaserName,
-                amount: 19,
+                amount: 0.01,
                 status: 'Pending',
                 updated_at: new Date().toISOString()
               })
@@ -1625,7 +1612,7 @@ export default function App() {
               .insert({
                 email: purchaserEmail,
                 name: purchaserName,
-                amount: 19,
+                amount: 0.01,
                 status: 'Pending',
                 created_at: new Date().toISOString(),
                 updated_at: new Date().toISOString()
@@ -1682,6 +1669,15 @@ export default function App() {
 
   return (
     <div className="font-sans bg-white text-black overflow-x-hidden selection:bg-neutral-100 selection:text-black">
+      {/* Declarative SEO Helmet */}
+      <Helmet 
+        title={seoConfig.title} 
+        description={seoConfig.description} 
+        keywords={seoConfig.keywords} 
+        canonical={canonicalUrl} 
+        lang={lang} 
+      />
+
       {/* Launch Offer Promo Banner */}
       <div className="bg-black text-white text-[10px] sm:text-xs py-2 px-4 text-center font-bold tracking-widest uppercase border-b border-neutral-800">
         {lang === 'en' 
