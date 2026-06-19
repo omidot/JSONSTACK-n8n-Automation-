@@ -899,11 +899,11 @@ const safeSplitEmail = (email: any): string => {
 
 const TRANSLATIONS = {
   en: {
-    heroTag: "Download 300+ Premium n8n Templates • Self-Hosted No-Code Solutions",
-    heroTitle: "Premium n8n Templates & Kịch Bản Tự Động Hóa.",
-    heroTitleHighlight: "Built for n8n workflows.",
-    heroDesc: "Unlock 300+ ready-made n8n templates to instantly scale your business automation. This complete library allows you to buy n8n templates of the highest quality to deploy optimized n8n workflows without hiring a developer. Cover every automation template need from CRM syncs, automated AI agents, WhatsApp chat routers, web scrapers, and secure notifications.",
-    heroParagraphSub: "Our ready-to-use n8n templates bypass expensive monthly SaaS platform costs, providing you lifetime access with pristine workspace configurations.",
+    heroTag: "Download 300+ Verified n8n Templates • Free & Premium JSON Workflows",
+    heroTitle: "Download Best n8n Templates & Free Workflow Examples",
+    heroTitleHighlight: "Pre-Configured JSON files for your self-hosted workspace.",
+    heroDesc: "Supercharge your business with premium n8n templates and custom workflows. Our extensive workspace library allows you to download verified n8n templates and copy-pasteable JSON configs to deploy automations smoothly without hiring a developer. Instantly integrate automated AI agents, WhatsApp chat routers, web scrapers, Facebook autoposters, and secure Telegram notifications.",
+    heroParagraphSub: "Bypass costly monthly SaaS platforms and scale your daily workflow easily using production-ready, self-hosted n8n template setups.",
     btnUnlock: "Unlock 300+ JSON Templates",
     btnExplore: "Explore Directory",
     badgeWorkflows: "300+ Workflows",
@@ -980,11 +980,11 @@ const TRANSLATIONS = {
     seoFooterDisclaimer: "Disclaimer: We are not officially affiliated with, authorized, or endorsed by n8n.io."
   },
   vi: {
-    heroTag: "Tải 300+ Premium n8n Templates Tiếng Việt • Giải Pháp Tự Động Hóa Không Code",
-    heroTitle: "Bộ n8n Templates & Kịch Bản Tự Động Hóa Cao Cấp.",
-    heroTitleHighlight: "Xây dựng cho quy trình n8n workflows.",
-    heroDesc: "Mở khóa hơn 300+ mẫu n8n templates tiếng việt chất lượng cao để tự động hóa kịch bản n8n tự động hóa của bạn ngay lập tức. Đây là bộ thư viện hoàn hảo giúp bạn mua n8n templates tối ưu nhất để tự triển khai các n8n workflows chuyên nghiệp mà không cần thuê lập trình viên. Thiết lập tự động với đầy đủ tích hợp AI Agent, CRM, phễu marketing, chatbot WhatsApp, Telegram và công cụ thu thập dữ liệu tự động.",
-    heroParagraphSub: "Sử dụng kho kịch bản n8n tự động hóa để cắt giảm chi phí thuê bao đắt đỏ hàng tháng từ các bên trung gian khác, sở hữu giải pháp trọn đời với tệp cấu hình nguyên bản chỉnh chu.",
+    heroTag: "Tải Mẫu n8n Templates Tiếng Việt • Kịch Bản Tự Động Hóa Workflow .JSON",
+    heroTitle: "Mẫu n8n Templates Tiếng Việt & Kịch Bản Tự Động Hóa",
+    heroTitleHighlight: "Tải file JSON cấu hình sẵn các quy trình n8n workflow thực tế.",
+    heroDesc: "Tối ưu hóa công việc và doanh nghiệp của bạn với kho tài liệu gồm hơn 300+ kịch bản n8n tự động hóa thực tế. Bạn dễ dàng tìm kiếm, chọn lọc và tải n8n templates chất lượng cao dạng file JSON cấu hình sẵn để cài đặt tự động mà không cần biết code. Khám phá ngay các mẫu n8n workflow gửi tin nhắn WhatsApp, Telegram, auto post bài Facebook, cào dữ liệu web Scraper, đồng bộ Google Sheets, và tích hợp AI Agent hoạt động thông minh.",
+    heroParagraphSub: "Sở hữu ngay trọn bộ n8n templates cấu hình sẵn để cắt giảm tối đa chi phí thuê bao SaaS đắt đỏ hàng tháng, vận hành vĩnh viễn trên máy chủ n8n tự lưu trữ (self-hosted).",
     btnUnlock: "Mở Khóa 300+ Mẫu JSON",
     btnExplore: "Khám Phá Danh Mục",
     badgeWorkflows: "300+ Quy Trình",
@@ -1990,9 +1990,9 @@ export default function App() {
             className="text-4xl sm:text-6xl font-extrabold tracking-tight text-black leading-[1.05]"
           >
             {lang === 'en' ? (
-              <><span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span> & Workflows: Download Ready-to-Use Automations</>
+              <>Download Best <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span> & Workflow Examples</>
             ) : (
-              <><span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span> & Workflows: Tải Mẫu Kịch Bản Tự Động Hóa Cấu Hình Sẵn</>
+              <>Tải Mẫu <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span> Tiếng Việt & Kịch Bản Workflow (.JSON)</>
             )}
           </motion.h1>
           
