@@ -1165,13 +1165,13 @@ export default function App() {
   // Dynamic SEO configurations based on high search volume queries and Google display criteria
   const seoConfig = useMemo(() => {
     return lang === 'en' ? {
-      title: 'n8n Templates: Download 300+ Premium n8n Workflows & Automation Templates',
-      description: 'Accelerate your workflow with 300+ premium n8n templates. Buy the ultimate library of ready-to-use n8n workflows and automation templates to save thousand of hours of setup. Get lifetime access to optimized CRM, AI agents, WhatsApp, and scraper solutions.',
-      keywords: 'n8n templates, ready-made n8n templates, buy n8n workflows, premium n8n templates, n8n templates free, n8n automation templates, n8n workflows'
+      title: 'n8n Templates - Download Best Ready-to-Use n8n Workflow Templates',
+      description: 'Get 300+ premium, battle-tested n8n templates to automate your business instantly. Download custom n8n workflow templates, n8n JSON configs, AI agent nodes, scrapers, and CRM integrations. Save hours on self-hosted setup.',
+      keywords: 'n8n template, n8n templates, best n8n templates, free n8n templates, buy n8n templates, ready-to-use n8n templates, n8n workflow examples, n8n automation templates, custom n8n workflows, n8n json templates, self-hosted n8n templates'
     } : {
-      title: 'n8n Templates: Tải 300+ Kịch Bản N8N Tự Động Hóa & Workflows Sẵn Có',
-      description: 'Tăng tốc quy trình của bạn với hơn 300+ n8n templates cao cấp. Mua ngay thư viện kịch bản n8n tự động hóa và n8n workflows được tối ưu hóa sẵn, giúp tiết kiệm hàng ngàn giờ làm việc. Tải file cấu hình sẵn để cài đặt AI Agent, CRM, WhatsApp, Telegram nhanh chóng.',
-      keywords: 'n8n templates, kịch bản n8n tự động hóa, n8n templates tiếng việt, mua n8n templates, n8n workflows, mẫu n8n workflow tự động hóa, n8n automation'
+      title: 'n8n Templates - Tải 300+ Mẫu Kịch Bản n8n Workflow Tự Động Hóa Thực Tế',
+      description: 'Tải trọn bộ 300+ mẫu n8n templates tiếng việt cấu hình sẵn (file .JSON). Thư viện kịch bản n8n workflow tự động hóa marketing, gửi WhatsApp, Telegram, đồng bộ Google Sheets và CRM hoàn hảo. Sở hữu giấy phép trọn vẹn.',
+      keywords: 'n8n template, n8n templates, kịch bản n8n tự động hóa, mẫu n8n workflow, tải n8n templates tiếng việt, n8n templates free json, n8n workflow examples, n8n automation, mua n8n templates'
     };
   }, [lang]);
 
@@ -1990,9 +1990,9 @@ export default function App() {
             className="text-4xl sm:text-6xl font-extrabold tracking-tight text-black leading-[1.05]"
           >
             {lang === 'en' ? (
-              <>Download 300+ Premium <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span>: Buy Ready-Made n8n Workflows</>
+              <><span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span> & Workflows: Download Ready-to-Use Automations</>
             ) : (
-              <>Tải 300+ Premium <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span>: Kho Kịch Bản N8N Tự Động Hóa Cao Cấp</>
+              <><span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span> & Workflows: Tải Mẫu Kịch Bản Tự Động Hóa Cấu Hình Sẵn</>
             )}
           </motion.h1>
           
@@ -2018,6 +2018,38 @@ export default function App() {
               {TRANSLATIONS[lang].btnExplore} <ArrowDown size={14} className="animate-bounce" />
             </a>
           </motion.div>
+
+          {/* Popular SEO Search Tags & Niche Templates */}
+          <div className="pt-3 border-t border-neutral-100/60">
+            <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest block mb-2.5">
+              {lang === 'en' ? 'Popular Niche Searches & Tags' : 'Từ khóa tìm kiếm & Quy trình thịnh hành'}
+            </span>
+            <div className="flex flex-wrap gap-1.5 max-w-2xl">
+              {[
+                { label: lang === 'en' ? 'n8n AI Agent' : 'n8n template AI Agent', query: 'ai', folder: 'Featured AI Agents' },
+                { label: lang === 'en' ? 'WhatsApp Chatbot' : 'n8n workflow WhatsApp', query: 'whatsapp', folder: 'Communication (WhatsApp, Slack, Gmail)' },
+                { label: lang === 'en' ? 'CRM Automation' : 'n8n template CRM Sync', query: 'crm', folder: 'CRM & Marketing Suite' },
+                { label: lang === 'en' ? 'Google Sheets Sync' : 'n8n google sheets', query: 'google sheets', folder: 'Communication (WhatsApp, Slack, Gmail)' },
+                { label: lang === 'en' ? 'Facebook Ads Custom' : 'Đăng bài tự động', query: 'facebook', folder: 'Social Media Automation' },
+                { label: lang === 'en' ? 'Web Scraper' : 'Cào dữ liệu web Scraper', query: 'scrape', folder: 'API Custom Web Scraping' },
+                { label: lang === 'en' ? 'Telegram Bot' : 'Tự động hóa Telegram', query: 'telegram', folder: 'Communication (WhatsApp, Slack, Gmail)' },
+                { label: lang === 'en' ? 'Email Campaign' : 'Bán hàng tự động CRM', query: 'email', folder: 'CRM & Marketing Suite' },
+              ].map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    if (item.folder) setSelectedFolder(item.folder);
+                    setSearchQuery(item.query);
+                    const el = document.getElementById('directory');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-2.5 py-1 text-[10px] font-mono text-neutral-500 border border-neutral-100 rounded-full hover:border-black hover:text-black hover:bg-neutral-50 transition-all cursor-pointer whitespace-nowrap bg-neutral-50/50"
+                >
+                  #{item.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* Social Proof Badges */}
           <div className="flex items-center gap-6 pt-4 border-t border-neutral-100">
