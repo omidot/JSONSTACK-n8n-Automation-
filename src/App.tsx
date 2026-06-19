@@ -46,6 +46,7 @@ import {
 } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { Helmet } from './components/Helmet';
+import { motion, AnimatePresence } from 'motion/react';
 
 // Initialize Supabase. If credentials are not set, it won't crash but will gracefully handle operations.
 const supabaseUrl = (import.meta as any).env.VITE_SUPABASE_URL || '';
@@ -898,11 +899,11 @@ const safeSplitEmail = (email: any): string => {
 
 const TRANSLATIONS = {
   en: {
-    heroTag: "Zero Cloud Costs • Self-Hosted Freedom",
-    heroTitle: "Premium no-code automation templates.",
-    heroTitleHighlight: "Built for n8n.",
-    heroDesc: "Unlock 300+ ready-made n8n workflow templates to supercharge your no-code automation projects. This mega bundle covers everything from AI content creation, social media automation, CRM integrations, eCommerce workflows, APIs, WhatsApp, and web scraping — all in easy-to-import JSON files.",
-    heroParagraphSub: "Perfect for freelancers, agencies, entrepreneurs, and businesses who want to save time and scale smarter without writing code.",
+    heroTag: "Download 300+ Premium n8n Templates • Self-Hosted No-Code Solutions",
+    heroTitle: "Premium n8n Templates & Kịch Bản Tự Động Hóa.",
+    heroTitleHighlight: "Built for n8n workflows.",
+    heroDesc: "Unlock 300+ ready-made n8n templates to instantly scale your business automation. This complete library allows you to buy n8n templates of the highest quality to deploy optimized n8n workflows without hiring a developer. Cover every automation template need from CRM syncs, automated AI agents, WhatsApp chat routers, web scrapers, and secure notifications.",
+    heroParagraphSub: "Our ready-to-use n8n templates bypass expensive monthly SaaS platform costs, providing you lifetime access with pristine workspace configurations.",
     btnUnlock: "Unlock 300+ JSON Templates",
     btnExplore: "Explore Directory",
     badgeWorkflows: "300+ Workflows",
@@ -931,7 +932,7 @@ const TRANSLATIONS = {
     benefit4Title: "Highly Scalable",
     benefit4Desc: "Expand your daily workflow volume capacity smoothly with zero extra licensing costs.",
     pricingTitle: "Get the Premium No-Code Automation OS",
-    pricingSubtitle: "Unlock the Ultimate No-Code Suite for $0.01 (99.9% Off) • Live Checkout",
+    pricingSubtitle: "Unlock the Ultimate No-Code Suite for $19 (80% Off) • Live Checkout",
     pricingBadge: "Instant Delivery Package",
     pricingBoxBadge: "Lifetime Access",
     pricingBoxTitle: "n8n Platform Suite",
@@ -979,11 +980,11 @@ const TRANSLATIONS = {
     seoFooterDisclaimer: "Disclaimer: We are not officially affiliated with, authorized, or endorsed by n8n.io."
   },
   vi: {
-    heroTag: "Không Chi Phí Điện Toán Đám Mây • Tự Do Tự Cài Đặt",
-    heroTitle: "Kho quy trình tự động hóa không cần code.",
-    heroTitleHighlight: "Xây dựng cho n8n.",
-    heroDesc: "Mở khóa hơn 300+ mẫu workflow n8n được thiết kế sẵn để tăng tốc các dự án tự động hóa không cần code của bạn. Mega bundle này bao gồm tất cả mọi thứ từ tạo nội dung bằng AI, tự động hóa mạng xã hội, tích hợp CRM, quy trình thương mại điện tử, APIs, WhatsApp và cào dữ liệu web — tất cả đều nằm trong tệp JSON cực kỳ dễ tải lên.",
-    heroParagraphSub: "Hoàn hảo cho người làm tự do, agency, nhà khởi nghiệp và doanh nghiệp muốn tiết kiệm thời gian và mở rộng quy mô thông minh hơn mà không cần viết mã.",
+    heroTag: "Tải 300+ Premium n8n Templates Tiếng Việt • Giải Pháp Tự Động Hóa Không Code",
+    heroTitle: "Bộ n8n Templates & Kịch Bản Tự Động Hóa Cao Cấp.",
+    heroTitleHighlight: "Xây dựng cho quy trình n8n workflows.",
+    heroDesc: "Mở khóa hơn 300+ mẫu n8n templates tiếng việt chất lượng cao để tự động hóa kịch bản n8n tự động hóa của bạn ngay lập tức. Đây là bộ thư viện hoàn hảo giúp bạn mua n8n templates tối ưu nhất để tự triển khai các n8n workflows chuyên nghiệp mà không cần thuê lập trình viên. Thiết lập tự động với đầy đủ tích hợp AI Agent, CRM, phễu marketing, chatbot WhatsApp, Telegram và công cụ thu thập dữ liệu tự động.",
+    heroParagraphSub: "Sử dụng kho kịch bản n8n tự động hóa để cắt giảm chi phí thuê bao đắt đỏ hàng tháng từ các bên trung gian khác, sở hữu giải pháp trọn đời với tệp cấu hình nguyên bản chỉnh chu.",
     btnUnlock: "Mở Khóa 300+ Mẫu JSON",
     btnExplore: "Khám Phá Danh Mục",
     badgeWorkflows: "300+ Quy Trình",
@@ -1012,7 +1013,7 @@ const TRANSLATIONS = {
     benefit4Title: "Khả Năng Mở Rộng Cao",
     benefit4Desc: "Mở rộng công suất xử lý công việc hàng ngày một cách mượt mờ với chi phí cực kỳ tiết kiệm.",
     pricingTitle: "Sở Hữu Hệ Điều Hành Tự Động Hóa n8n Premium",
-    pricingSubtitle: "Ưu Đãi Đặc Biệt: Mở khóa gói giải pháp No-Code tối thượng chỉ với $0.01 (Mức giảm 99.9%)",
+    pricingSubtitle: "Ưu Đãi Đặc Biệt: Mở khóa gói giải pháp No-Code tối thượng chỉ với $19 (Mức giảm 80%)",
     pricingBadge: "Giao Hàng Số Tức Thì",
     pricingBoxBadge: "Sử Dụng Trọn Đời",
     pricingBoxTitle: "Hệ Thống Giải Pháp n8n Suite",
@@ -1115,7 +1116,7 @@ export default function App() {
       return [{
         id: "Premium Lifetime Pack",
         status: 'Completed',
-        amount: 0.01,
+        amount: 19,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       }];
@@ -1164,13 +1165,13 @@ export default function App() {
   // Dynamic SEO configurations based on high search volume queries and Google display criteria
   const seoConfig = useMemo(() => {
     return lang === 'en' ? {
-      title: 'n8n Templates: Buy 300+ Premium n8n Workflows',
-      description: 'Download over 300+ professional-grade n8n templates and workflows. Save hours of manual self-hosted setup and deploy instant CRM, AI agents, and marketing automations.',
-      keywords: 'n8n templates, buy n8n workflows, ready to use n8n workflow, n8n templates free, automate n8n, self hosted n8n script'
+      title: 'n8n Templates: Download 300+ Premium n8n Workflows & Automation Templates',
+      description: 'Accelerate your workflow with 300+ premium n8n templates. Buy the ultimate library of ready-to-use n8n workflows and automation templates to save thousand of hours of setup. Get lifetime access to optimized CRM, AI agents, WhatsApp, and scraper solutions.',
+      keywords: 'n8n templates, ready-made n8n templates, buy n8n workflows, premium n8n templates, n8n templates free, n8n automation templates, n8n workflows'
     } : {
-      title: 'Workflow n8n - Mua 300+ Kịch Bản Tự Động Hóa Sẵn Có',
-      description: 'Tải ngay kho kịch bản hơn 300+ mẫu workflow n8n chất lượng cao. Rút ngắn thời gian tự cài đặt máy chủ VPS, cấu hình tích hợp AI Agent, Telegram, Google Sheets, CRM.',
-      keywords: 'mua workflow n8n, n8n templates tiếng việt, kịch bản n8n tự động hóa, tài liệu hướng dẫn n8n, thư viện n8n, vps docker n8n'
+      title: 'n8n Templates: Tải 300+ Kịch Bản N8N Tự Động Hóa & Workflows Sẵn Có',
+      description: 'Tăng tốc quy trình của bạn với hơn 300+ n8n templates cao cấp. Mua ngay thư viện kịch bản n8n tự động hóa và n8n workflows được tối ưu hóa sẵn, giúp tiết kiệm hàng ngàn giờ làm việc. Tải file cấu hình sẵn để cài đặt AI Agent, CRM, WhatsApp, Telegram nhanh chóng.',
+      keywords: 'n8n templates, kịch bản n8n tự động hóa, n8n templates tiếng việt, mua n8n templates, n8n workflows, mẫu n8n workflow tự động hóa, n8n automation'
     };
   }, [lang]);
 
@@ -1335,7 +1336,7 @@ export default function App() {
         // Save completed transaction in Supabase
         const emailVal = returnEmail ? safeDecode(returnEmail) : (savedEmail || '');
         const nameVal = returnName ? safeDecode(returnName) : (savedName || 'Customer');
-        const returnAmount = Number(params.get('amount')) || 0.01;
+        const returnAmount = Number(params.get('amount')) || 19;
         if (supabase && emailVal) {
           (async () => {
             try {
@@ -1539,15 +1540,15 @@ export default function App() {
     }
     
     // Construct URLs for PayPal redirect
-    const returnUrl = window.location.origin + window.location.pathname + `?payment_status=Completed&email=${encodeURIComponent(purchaserEmail)}&name=${encodeURIComponent(purchaserName)}&amount=0.01`;
+    const returnUrl = window.location.origin + window.location.pathname + `?payment_status=Completed&email=${encodeURIComponent(purchaserEmail)}&name=${encodeURIComponent(purchaserName)}&amount=19`;
     const cancelUrl = window.location.origin + window.location.pathname + `?payment_status=Cancelled`;
     
     // Construct standard PayPal Standard Payment checkout link
     const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?` + 
       `cmd=_xclick` +
-      `&business=${encodeURIComponent('omidot.product@gmail.com')}` +
+      `&business=${encodeURIComponent('ahitofficial.com@gmail.com')}` +
       `&item_name=${encodeURIComponent('JSONStack 300+ Premium n8n Workflows Bundle')}` +
-      `&amount=0.01` +
+      `&amount=19` +
       `&currency_code=USD` +
       `&no_shipping=1` +
       `&no_note=1` +
@@ -1600,7 +1601,7 @@ export default function App() {
               .from('purchases')
               .update({
                 name: purchaserName,
-                amount: 0.01,
+                amount: 19,
                 status: 'Pending',
                 updated_at: new Date().toISOString()
               })
@@ -1612,7 +1613,7 @@ export default function App() {
               .insert({
                 email: purchaserEmail,
                 name: purchaserName,
-                amount: 0.01,
+                amount: 19,
                 status: 'Pending',
                 created_at: new Date().toISOString(),
                 updated_at: new Date().toISOString()
@@ -1681,15 +1682,15 @@ export default function App() {
       {/* Launch Offer Promo Banner */}
       <div className="bg-black text-white text-[10px] sm:text-xs py-2 px-4 text-center font-bold tracking-widest uppercase border-b border-neutral-800">
         {lang === 'en' 
-          ? 'Launch Offer: Unlock the Ultimate No-Code Suite for $0.01 (99.9% Off) • Live Checkout Active'
-          : 'Ưu đãi đặc biệt: Mở khóa giải pháp No-Code tối thượng chỉ với $0.01 (Giảm 99.9%) • Thanh toán Thật'}
+          ? 'Launch Offer: Unlock the Ultimate No-Code Suite for $19 (80% Off) • Live Checkout Active'
+          : 'Ưu đãi đặc biệt: Mở khóa giải pháp No-Code tối thượng chỉ với $19 (Giảm 80%) • Thanh toán Thật'}
       </div>
 
       {/* Navigation Header */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-100">
-        <div className="max-w-6xl mx-auto px-6 h-16 sm:h-20 flex items-center justify-between">
-          <a href="#" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 flex items-center justify-center shrink-0">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+          <a href="#" className="flex items-center space-x-1.5 sm:space-x-2.5 group">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center shrink-0">
               <img 
                 src="/logos/jsonstack_logo.png" 
                 alt="JSONStack Logo" 
@@ -1705,13 +1706,13 @@ export default function App() {
                   }
                 }}
               />
-              <svg className="w-6 h-6 text-black" style={{ display: 'none' }} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-5 h-5 text-black" style={{ display: 'none' }} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="50" cy="50" r="24" stroke="currentColor" strokeWidth="8" fill="none"/>
                 <line x1="50" y1="15" x2="50" y2="85" stroke="black" strokeWidth="16"/>
                 <line x1="50" y1="20" x2="50" y2="80" stroke="currentColor" strokeWidth="8"/>
               </svg>
             </div>
-            <span className="text-xl sm:text-2xl tracking-[0.05em] uppercase font-sans flex items-center">
+            <span className="text-sm sm:text-lg tracking-[0.05em] uppercase font-sans flex items-center">
               <span className="font-black text-black">JSON</span>
               <span className="font-light text-neutral-550">STACK</span>
             </span>
@@ -1724,7 +1725,7 @@ export default function App() {
             <a href="#pricing" className="hover:text-black transition-colors">{lang === 'en' ? 'Pricing' : 'Bảng giá'}</a>
           </div>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1.5 sm:space-x-3">
             {/* Language Switcher */}
             <button
               onClick={() => {
@@ -1732,7 +1733,7 @@ export default function App() {
                 setLang(newLang);
                 localStorage.setItem('jsonstack_preferred_lang', newLang);
               }}
-              className="flex items-center space-x-1.5 px-3 py-2 rounded-xl border border-neutral-200 text-[10px] tracking-wider uppercase font-bold text-neutral-600 bg-white hover:bg-neutral-50 hover:border-black transition-all font-sans cursor-pointer shrink-0"
+              className="flex items-center space-x-1 px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl border border-neutral-200 text-[9px] sm:text-[10px] tracking-wider uppercase font-bold text-neutral-600 bg-white hover:bg-neutral-50 hover:border-black transition-all font-sans cursor-pointer shrink-0 whitespace-nowrap"
               title="Change Language / Đổi ngôn ngữ"
             >
               <Globe size={11} className="text-neutral-500" />
@@ -1750,7 +1751,7 @@ export default function App() {
                     <span className="font-bold text-neutral-800 max-w-[120px] truncate" title={String(purchaserName || currentUserName || purchaserEmail || currentUserEmail || '')}>
                       {purchaserName || currentUserName || safeSplitEmail(purchaserEmail) || safeSplitEmail(currentUserEmail) || 'Customer'}
                     </span>
-                    <span className="text-[9px] text-emerald-600 font-medium">{lang === 'en' ? 'Premium Package ($0.01)' : 'Gói Premium (0.01$)'}</span>
+                    <span className="text-[9px] text-emerald-600 font-medium">{lang === 'en' ? 'Premium Package ($19)' : 'Gói Premium (19$)'}</span>
                   </div>
                   <ChevronDown size={11} className="text-emerald-600 transition-transform duration-200 group-hover:rotate-180" />
                 </div>
@@ -1837,18 +1838,10 @@ export default function App() {
             ) : null}
 
             {!isUnlocked && (
-              <a href="#pricing" className="bg-black text-white text-[11px] tracking-widest uppercase font-bold px-5 py-2.5 rounded-lg hover:bg-neutral-800 transition-all font-sans">
+              <a href="#pricing" className="bg-black text-white text-[9px] sm:text-[11px] tracking-widest uppercase font-bold px-2.5 py-1.5 sm:px-5 sm:py-2.5 rounded-lg hover:bg-neutral-800 transition-all font-sans whitespace-nowrap shrink-0">
                 {lang === 'en' ? 'Get Template Pack' : 'Tải Gói Template'}
               </a>
             )}
-
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="md:hidden p-2 text-black hover:bg-neutral-100 rounded"
-              id="mobile-menu-toggle-btn"
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
           </div>
         </div>
 
@@ -1898,7 +1891,7 @@ export default function App() {
                       <span className="font-bold text-neutral-800 truncate block">
                         {purchaserName || currentUserName || safeSplitEmail(purchaserEmail) || safeSplitEmail(currentUserEmail) || 'Customer'}
                       </span>
-                      <span className="text-[10px] text-emerald-600 font-sans font-medium">Gói Premium (0.01$)</span>
+                      <span className="text-[10px] text-emerald-600 font-sans font-medium">Gói Premium (19$)</span>
                     </div>
                   </div>
                   <button 
@@ -1990,26 +1983,41 @@ export default function App() {
             {TRANSLATIONS[lang].heroTag}
           </span>
           
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-black leading-[1.05]">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl sm:text-6xl font-extrabold tracking-tight text-black leading-[1.05]"
+          >
             {lang === 'en' ? (
-              <>Premium <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">no-code automation</span> templates. Built for n8n.</>
+              <>Download 300+ Premium <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span>: Buy Ready-Made n8n Workflows</>
             ) : (
-              <>Kho quy trình <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">tự động hóa không code</span> cao cấp. Xây dựng cho n8n.</>
+              <>Tải 300+ Premium <span className="underline underline-offset-8 decoration-1 decoration-neutral-300">n8n Templates</span>: Kho Kịch Bản N8N Tự Động Hóa Cao Cấp</>
             )}
-          </h1>
+          </motion.h1>
           
-          <p className="text-neutral-500 text-base sm:text-lg font-light leading-relaxed max-w-2xl">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+            className="text-neutral-500 text-base sm:text-lg font-light leading-relaxed max-w-2xl"
+          >
             {TRANSLATIONS[lang].heroDesc} <span className="text-black font-semibold">{TRANSLATIONS[lang].heroParagraphSub}</span>
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2"
+          >
             <a href="#pricing" className="bg-black text-white font-bold text-center py-4 px-8 rounded-lg text-xs tracking-widest uppercase hover:bg-neutral-800 transition-all shadow-sm">
               {TRANSLATIONS[lang].btnUnlock}
             </a>
             <a href="#directory" className="border border-neutral-200 text-neutral-800 font-bold text-center py-4 px-8 rounded-lg text-xs tracking-widest uppercase hover:bg-neutral-50 transition-all flex items-center justify-center gap-2">
               {TRANSLATIONS[lang].btnExplore} <ArrowDown size={14} className="animate-bounce" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Social Proof Badges */}
           <div className="flex items-center gap-6 pt-4 border-t border-neutral-100">
@@ -2103,7 +2111,7 @@ export default function App() {
             {lang === 'en' ? '🛠️ ESSENTIAL REQUIREMENTS BEFORE IMPORT' : '🛠️ CÔNG CỤ CẦN THIẾT • THIẾT LẬP TRƯỚC KHI IMPORT'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-black">
-            {lang === 'en' ? 'Prepare Your Local Environment' : 'Toàn bộ công cụ cài đặt trước khi import lên n8n'}
+            {lang === 'en' ? 'Configure Your Environment for Premium n8n Templates' : 'Cấu Hình Môi Trường Cho Bộ n8n Templates Cao Cấp'}
           </h2>
           <p className="text-neutral-500 text-sm font-light leading-relaxed">
             {lang === 'en' 
@@ -2186,8 +2194,8 @@ export default function App() {
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-black leading-tight">
               {lang === 'en' 
-                ? 'Why industry leaders migrate to open source automation.' 
-                : 'Tại sao các doanh nghiệp chuyển sang tự động hóa mã nguồn mở?'}
+                ? 'Why Choose Self-Hosted n8n Workflows Over Costly SaaS Integrators' 
+                : 'Vì Sao Kịch Bản n8n Tự Động Hóa Vượt Trội Hơn Zapier Có Phí'}
             </h2>
             <p className="text-neutral-500 text-sm font-light leading-relaxed">
               {lang === 'en'
@@ -2286,7 +2294,7 @@ export default function App() {
               {lang === 'en' ? 'Browse Actual Directory Files' : 'Khám phá tệp thật trong thư viện thư mục'}
             </span>
             <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-black">
-              {lang === 'en' ? 'Your entire workspace, perfectly categorized.' : 'Toàn bộ không gian làm việc của bạn, được sắp xếp hoàn mỹ.'}
+              {lang === 'en' ? 'Search and Unlock 300+ Verified n8n Templates' : 'Khám Phá Hơn 300+ n8n Templates Hoạt Động Bản Quyền'}
             </h2>
             <p className="text-neutral-500 text-sm font-light leading-relaxed">
               {lang === 'en'
@@ -2466,7 +2474,7 @@ export default function App() {
             {lang === 'en' ? 'Instant Delivery Package' : 'Gói Giao Nhận Ngay Lập Tức'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-black mt-2">
-            {lang === 'en' ? 'Get the Premium No-Code Automation OS' : 'Sở Hữu Hệ Điều Hành Tự Động Hóa Không Code Cao Cấp'}
+            {lang === 'en' ? 'Get Lifetime Access to 300+ Premium n8n Templates' : 'Mua Trọn Bộ n8n Templates Cao Cấp & Kịch Bản Tự Động Hóa'}
           </h2>
         </div>
 
@@ -2489,9 +2497,9 @@ export default function App() {
 
             <div className="space-y-4 pt-4 border-t border-neutral-100">
               <div className="flex items-baseline space-x-3">
-                <span className="text-3xl sm:text-4xl font-black text-black">$0.01</span>
+                <span className="text-3xl sm:text-4xl font-black text-black">$19</span>
                 <span className="text-sm sm:text-base text-neutral-400 line-through">$99.00</span>
-                <span className="text-red-600 text-xs font-bold bg-red-50 py-0.5 px-2 rounded font-sans">-99.9% OFF</span>
+                <span className="text-red-600 text-xs font-bold bg-red-50 py-0.5 px-2 rounded font-sans">-80% OFF</span>
               </div>
 
               <ul className="space-y-3 text-xs text-neutral-600 font-light pt-2">
@@ -2830,7 +2838,7 @@ export default function App() {
       <section className="border-t border-neutral-100 py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-black text-black text-center mb-12">
-            {lang === 'en' ? 'Frequently Asked Questions' : 'Các Câu Hỏi Thường Gặp (FAQs)'}
+            {lang === 'en' ? 'n8n Templates & Workflows: Frequently Asked Questions' : 'n8n Templates & Kịch Bản Tự Động Hóa: Các Câu Hỏi Thường Gặp (FAQs)'}
           </h2>
           
           <div className="space-y-4">
@@ -2901,7 +2909,7 @@ export default function App() {
               </div>
               <div className="text-right">
                 <p className="text-[10px] text-neutral-400 font-bold uppercase">TOTAL TO PAY</p>
-                <p className="font-extrabold text-base text-neutral-900">$0.01 <span className="text-xs text-neutral-500 font-light">USD</span></p>
+                <p className="font-extrabold text-base text-neutral-900">$19 <span className="text-xs text-neutral-500 font-light">USD</span></p>
               </div>
             </div>
 
@@ -2942,7 +2950,7 @@ export default function App() {
                       onClick={completePayPalPayment}
                       className="w-full bg-[#0070ba] hover:bg-[#005ea6] text-white font-bold py-3 px-4 rounded-xl text-xs tracking-wider transition-all shadow-md text-center"
                     >
-                      Authorize $0.01 Sandbox Payment
+                      Authorize $19 Sandbox Payment
                     </button>
                     <button 
                       onClick={() => setShowPayPalModal(false)}
@@ -2979,7 +2987,7 @@ export default function App() {
                   <div className="space-y-1">
                     <p className="text-sm font-bold text-neutral-800">Transaction Approved!</p>
                     <p className="text-[10px] text-neutral-500">
-                      Payment of $0.01 USD processed successfully. Returning to JSONStack...
+                      Payment of $19 USD processed successfully. Returning to JSONStack...
                     </p>
                   </div>
                 </div>
@@ -3030,9 +3038,13 @@ export default function App() {
               <div className="w-12 h-12 bg-neutral-50 border border-neutral-150 rounded-full flex items-center justify-center mx-auto shadow-sm text-black">
                 <LogIn size={20} />
               </div>
-              <h3 className="text-lg font-black text-black">ĐĂNG NHẬP / XÁC MINH</h3>
+              <h3 className="text-lg font-black text-black">
+                {lang === 'en' ? 'LOG IN / VERIFY' : 'ĐĂNG NHẬP / XÁC MINH'}
+              </h3>
               <p className="text-[11px] text-neutral-400 font-light px-2 leading-normal">
-                Nhập Email hoặc Tên người mua đã thanh toán Premium để xác minh quyền truy cập đầy đủ và kiểm tra dữ liệu đơn hàng.
+                {lang === 'en' 
+                  ? 'Enter the Premium paid Email or Username to verify full access permissions and check your order.'
+                  : 'Nhập Email hoặc Tên người mua đã thanh toán Premium để xác minh quyền truy cập đầy đủ và kiểm tra dữ liệu đơn hàng.'}
               </p>
             </div>
 
@@ -3077,7 +3089,10 @@ export default function App() {
                     
                     setShowAuthModal(false);
                   } else {
-                    setAuthError("Không tìm thấy đơn hàng Premium hoàn tất nào khớp với Email hoặc Tên này. Vui lòng thanh toán trước khi đăng nhập!");
+                    setAuthError(lang === 'en'
+                      ? "No completed Premium order found matching this Email or Name. Please purchase first!"
+                      : "Không tìm thấy đơn hàng Premium hoàn tất nào khớp với Email hoặc Tên này. Vui lòng thanh toán trước khi đăng nhập!"
+                    );
                   }
                   return;
                 }
@@ -3096,7 +3111,10 @@ export default function App() {
                 const { data, error } = await query;
                 if (error) {
                   console.error("Supabase Auth error:", error);
-                  setAuthError("Lỗi kết nối cơ sở dữ liệu. Vui lòng thử lại sau.");
+                  setAuthError(lang === 'en'
+                    ? "Database connection error. Please try again later."
+                    : "Lỗi kết nối cơ sở dữ liệu. Vui lòng thử lại sau."
+                  );
                 } else if (data && data.length > 0) {
                   const completedRecord = data.find(o => o.status === 'Completed');
                   if (completedRecord) {
@@ -3363,7 +3381,7 @@ export default function App() {
 
       {/* Live Sales/FOMO Funnel Notification Popup */}
       <div 
-        className={`fixed bottom-5 right-5 z-50 max-w-sm bg-white border border-neutral-200 rounded-2xl shadow-2xl p-4 flex items-start space-[#12] space-x-3.5 transition-all duration-500 ease-out transform ${
+        className={`fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-50 max-w-[280px] sm:max-w-xs bg-white border border-neutral-100 rounded-xl shadow-xl p-2.5 sm:p-3 flex items-start space-[#12] space-x-2.5 transition-all duration-500 ease-out transform ${
           showNotification && activeNotification
             ? "translate-y-0 opacity-100 scale-100" 
             : "translate-y-12 opacity-0 scale-95 pointer-events-none"
@@ -3372,28 +3390,28 @@ export default function App() {
       >
         {/* Verification Status Badge */}
         <div className="relative shrink-0">
-          <div className="w-10 h-10 bg-neutral-900 text-white rounded-full flex items-center justify-center font-extrabold text-xs">
+          <div className="w-8 h-8 bg-neutral-900 text-white rounded-full flex items-center justify-center font-extrabold text-[10px]">
             {activeNotification ? (lang === 'en' ? activeNotification.nameEn[0] : activeNotification.nameVi[0]) : 'J'}
           </div>
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white flex items-center justify-center">
-            <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 rounded-full border border-white flex items-center justify-center">
+            <svg className="w-2 h-2 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 text-left min-w-0 pr-2">
+        <div className="flex-1 text-left min-w-0 pr-1">
           <div className="flex items-center justify-between">
-            <h5 className="text-[11px] font-black text-black tracking-tight truncate max-w-[180px]">
+            <h5 className="text-[10px] sm:text-[11px] font-black text-black tracking-tight truncate max-w-[130px] sm:max-w-[160px]">
               {activeNotification ? (lang === 'en' ? activeNotification.nameEn : activeNotification.nameVi) : ''}
             </h5>
-            <span className="text-[9px] text-neutral-400 font-mono shrink-0 ml-2">
+            <span className="text-[8px] text-neutral-400 font-mono shrink-0 ml-1">
               {activeNotification ? (lang === 'en' ? activeNotification.timeEn : activeNotification.timeVi) : ''}
             </span>
           </div>
           
-          <p className="text-[11px] text-neutral-600 mt-0.5 leading-snug">
+          <p className="text-[10px] sm:text-[11px] text-neutral-600 mt-0.5 leading-snug">
             {lang === 'en' ? (
               <>
                 Just purchased <span className="font-semibold text-neutral-900">{activeNotification?.itemEn}</span>
@@ -3405,9 +3423,9 @@ export default function App() {
             )}
           </p>
           
-          <div className="flex items-center space-x-1.5 mt-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-[8px] text-emerald-600 font-bold uppercase tracking-wider font-mono">
+          <div className="flex items-center space-x-1.5 mt-1.5">
+            <span className="inline-block w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-[7.5px] sm:text-[8px] text-emerald-600 font-bold uppercase tracking-wider font-mono">
               {lang === 'en' ? 'Verified Buyer' : 'Người Mua Đã Xác Thực'}
             </span>
           </div>
@@ -3416,9 +3434,9 @@ export default function App() {
         {/* Close Button */}
         <button 
           onClick={() => setShowNotification(false)}
-          className="text-neutral-400 hover:text-neutral-650 p-0.5 rounded transition-colors shrink-0"
+          className="text-neutral-400 hover:text-neutral-600 p-0.5 rounded transition-colors shrink-0"
         >
-          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
